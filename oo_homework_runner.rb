@@ -25,12 +25,12 @@ bubu.roar
 
 # QUESTION 5 Instantiate three fish objects. 
 
-pike = Fish.new("Pike", 2)
-trout = Fish.new("Trout", 3)
-roach = Fish.new("Roach", 15)
-perch = Fish.new("Perch", 25)
-minnow = Fish.new("Minnow", 2001)
-salmon = Fish.new("Salmon", 6)
+pike = Fish.new("Pike", 100, 2)
+trout = Fish.new("Trout", 80, 3)
+roach = Fish.new("Roach", 25, 15)
+perch = Fish.new("Perch", 25, 25)
+minnow = Fish.new("Minnow", 8, 2001)
+salmon = Fish.new("Salmon", 120, 6)
 
 # QUESTION 6 Instantiate a river object that has these three fishes in an array.
 
@@ -43,8 +43,8 @@ tweed = River.new(fish)
 
 # QUESTION 7 When bears are initialized give them an empty 'food' array instance variable.
 
-yogi.eat_fish("Trout", 2, tweed)
-yogi.eat_fish("Minnow", 15, tweed)
+yogi.eat_fish(trout, 2, tweed)
+yogi.eat_fish(minnow, 15, tweed)
  #This will add one to the bears food array instance variable
 tweed.fish_population
 

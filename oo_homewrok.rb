@@ -4,7 +4,7 @@ class Bear
   def initialize(name, type)
       @name = name
       @type = type
-      @food = 0
+      @energy = 0
   end
 
   def roar
@@ -12,9 +12,9 @@ class Bear
   end
 
   def eat_fish(type, amount, river)
-    @food += amount
+    @energy += type.calorie_value * amount
     river.bear_takes(type, amount)
-    puts "Bear: #{@name}  Food Level: #{@food}"
+    puts "Bear: #{@name}  Energy Level: #{@energy}"
     
   end  
 end
@@ -22,9 +22,10 @@ end
 # QUESTION 4_______________________________________________
 
 class Fish
-  def initialize(name, number)
+  def initialize(name, calories, number)
       @name = name
       @number = number
+      @calories = calories
   end
 
   def fish_name
@@ -33,6 +34,10 @@ class Fish
 
   def number
     @number
+  end
+
+  def calorie_value
+    @calories
   end
 
   def add_to_population(change_in_population)
@@ -48,7 +53,7 @@ class River
   end     
 
   def bear_takes(type, amount) 
-    @fish.each{|fish| fish.add_to_population(amount * -1) if fish.fish_name == type}
+    @fish.each{|fish| fish.add_to_population(amount * -1) if fish.fish_name == type.fish_name}
   end
 
   def fish_population
